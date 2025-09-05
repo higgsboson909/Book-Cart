@@ -13,11 +13,11 @@ const getData = async () => {
       id: index,
       title: item.work.title,
       cover: `https://covers.openlibrary.org/b/id/${item.work.cover_id}-L.jpg`,
+      authors: item.work.author_names,
     }));
   } catch (error) {
     console.log(error);
     return [];
   }
 };
-
 export { getData };

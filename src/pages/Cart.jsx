@@ -1,5 +1,5 @@
-const Cart = () => {
+const Shop = () => {
   return <div></div>;
 };
 
-export default Cart;
+export default Shop;
