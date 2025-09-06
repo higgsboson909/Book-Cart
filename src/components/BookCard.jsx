@@ -3,7 +3,9 @@ import PropTypes from "prop-types";
 import { useState } from "react";
 import AddToCart from "./AddToCart";
 import QuantityField from "./QuantityField";
-const BookCard = ({ data }) => {
+const BookCard = ({
+  data = { id: 1, title: "hi", cover: "", authors: ["hi"] },
+}) => {
   const [quantity, setQuantity] = useState(0);
 
   return (
