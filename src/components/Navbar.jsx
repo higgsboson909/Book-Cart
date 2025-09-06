@@ -1,9 +1,10 @@
+import PropTypes from "prop-types";
 import { useState } from "react";
 import back_arrow from "../assets/arrow.png";
 import logo from "../assets/logo.png";
 import menu_icon from "../assets/menu_icon.png";
 
-const Navbar = () => {
+const Navbar = ({ cartItems }) => {
   const [showMenu, setShowMenu] = useState(false);
 
   return (
@@ -26,7 +27,7 @@ const Navbar = () => {
         </div>
 
         <div className="flex flex-col justify-center gap-1 items-center">
-          <p>Cart</p>
+          <p>Cart{` (${cartItems})`}</p>
           <hr className="w-2/4 border-none h-[1.5px]  bg-gray-800 " />
         </div>
       </ul>
@@ -57,4 +58,7 @@ const Navbar = () => {
   );
 };
 
+Navbar.propTypes = {
+  cartItems: PropTypes.number.isRequired,
+};
 export default Navbar;

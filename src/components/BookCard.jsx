@@ -5,6 +5,8 @@ import AddToCart from "./AddToCart";
 import QuantityField from "./QuantityField";
 const BookCard = ({
   data = { id: 1, title: "hi", cover: "", authors: ["hi"] },
+  handleAddItem,
+  handleRemItem,
 }) => {
   const [quantity, setQuantity] = useState(0);
 
@@ -22,6 +24,7 @@ const BookCard = ({
             quantity={quantity}
             handleClick={() => {
               setQuantity(1);
+              handleAddItem();
             }}
           ></AddToCart>
         ) : (
@@ -32,6 +35,7 @@ const BookCard = ({
               setQuantity((prev) => +prev + 1);
             }}
             setQuantity={setQuantity}
+            handleRemItem={handleRemItem}
           ></QuantityField>
         )}
       </div>
@@ -46,6 +50,8 @@ BookCard.propTypes = {
     authors: PropTypes.array,
     cover: PropTypes.string,
   }).isRequired,
+  handleAddItem: PropTypes.func.isRequired,
+  handleRemItem: PropTypes.func.isRequired,
 };
 
 export default BookCard;
