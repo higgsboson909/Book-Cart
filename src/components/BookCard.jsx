@@ -11,7 +11,7 @@ const BookCard = ({
   const [quantity, setQuantity] = useState(0);
 
   return (
-    <div className="border-2">
+    <div className="border-2 w-50">
       <div className=" flex flex-col">
         <img src={data.cover} alt="" className="" />
         <div className="w-full flex flex-col">
@@ -19,7 +19,7 @@ const BookCard = ({
           <div>{data.authors[0]}</div>
           <div>{`$${randomPrice()}`}</div>
         </div>
-        {quantity == 0 ? (
+        {quantity === 0 ? (
           <AddToCart
             quantity={quantity}
             handleClick={() => {

@@ -8,8 +8,8 @@ const QuantityField = ({
   handleRemItem,
 }) => {
   return (
-    <div className="w-50  h-8 m-auto ">
-      <div className="flex justify-around">
+    <div className="h-8 m-auto px-2 flex  items-center">
+      <div className="w-50 text-center mx-auto  flex justify-center gap-10 pr-3">
         <div className="w-2/4 flex justify-center items-center border-2">
           <button
             className="w-1/4 m-auto text-center bg-amber-300"
@@ -20,13 +20,21 @@ const QuantityField = ({
           >
             -
           </button>
-          <div className="w-1/2 px-3">
+          <div className="w-1/2 px-1">
             <input
               className="w-full outline-none m-auto"
               type="number"
               name="quantity"
               value={quantity}
-              onChange={(event) => setQuantity(event.target.value)}
+              onChange={(event) => {
+                quantity === 0 && handleRemItem();
+                setQuantity(+event.target.value);
+                console.log(quantity);
+              }}
+              onEmptied={(event) => {
+                event.preventDefault();
+                handleRemItem();
+              }}
             />
           </div>
           <button

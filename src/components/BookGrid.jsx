@@ -14,7 +14,7 @@ const BookGrid = ({ handleAddItem, handleRemItem }) => {
   // }, []);
   return (
     <div className="flex justify-center px-6 sm:px-[8vw] md:px-[12vw] lg:px-[12vw] ">
-      <div className="grid sm:grid-cols-2 md:grid-cols-4 lg:grid-cols-4 gap-10">
+      <div className="grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-10">
         <BookCard
           handleAddItem={handleAddItem}
           handleRemItem={handleRemItem}

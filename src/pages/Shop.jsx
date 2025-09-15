@@ -8,8 +8,8 @@ const Cart = () => {
     <div className="w-full ">
       <Navbar cartItems={cartItems}></Navbar>
       <BookGrid
-        handleAddItem={() => setCartItems((prev) => prev + 1)}
-        handleRemItem={() => setCartItems((prev) => prev - 1)}
+        handleAddItem={() => setCartItems((prev) => +prev + 1)}
+        handleRemItem={() => setCartItems((prev) => +prev - 1)}
       ></BookGrid>
     </div>
   );
