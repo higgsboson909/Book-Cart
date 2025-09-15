@@ -1,4 +1,3 @@
-import { randomPrice } from "../utils/randomPrice";
 import PropTypes from "prop-types";
 import { useState } from "react";
 import AddToCart from "./AddToCart";
@@ -13,11 +12,11 @@ const BookCard = ({
   return (
     <div className="border-2 w-50">
       <div className=" flex flex-col">
-        <img src={data.cover} alt="" className="" />
+        <img src={data.cover} alt="" className="p-3  h-60 w-55" />
         <div className="w-full flex flex-col">
-          <div>{data.title}</div>
-          <div>{data.authors[0]}</div>
-          <div>{`$${randomPrice()}`}</div>
+          <div className="w-full mx-auto p-2 text-sm">{data.title}</div>
+          <div className="text-xs">{data.authors[0]}</div>
+          <div className="text-base">{`$${data.price}`}</div>
         </div>
         {quantity === 0 ? (
           <AddToCart

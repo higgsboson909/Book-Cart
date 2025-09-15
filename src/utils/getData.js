@@ -1,3 +1,4 @@
+import { price } from "./price";
 const getData = async () => {
   try {
     const response = await fetch(
@@ -14,6 +15,7 @@ const getData = async () => {
       title: item.work.title,
       cover: `https://covers.openlibrary.org/b/id/${item.work.cover_id}-L.jpg`,
       authors: item.work.author_names,
+      price: price[index],
     }));
   } catch (error) {
     console.log(error);
