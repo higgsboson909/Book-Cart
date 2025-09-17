@@ -1,5 +1,12 @@
-const Shop = () => {
-  return <div></div>;
+import Navbar from "../components/Navbar.jsx";
+const Cart = () => {
+  return (
+    <>
+      {" "}
+      <Navbar></Navbar>
+      <div>hi</div>
+    </>
+  );
 };
 
-export default Shop;
+export default Cart;

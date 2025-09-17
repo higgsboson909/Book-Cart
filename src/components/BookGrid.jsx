@@ -18,7 +18,7 @@ const BookGrid = ({ handleAddItem, handleRemItem }) => {
         <p className="">Loading...</p>
       ) : (
         <div className="grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 lg:gap-20 gap-10">
-          {data.map((item, index) => (
+          {data.map((item) => (
             <BookCard
               key={item.id}
               data={item}

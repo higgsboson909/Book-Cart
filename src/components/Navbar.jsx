@@ -3,6 +3,7 @@ import { useState } from "react";
 import back_arrow from "../assets/arrow.png";
 import logo from "../assets/logo.png";
 import menu_icon from "../assets/menu_icon.png";
+import { Link } from "react-router";
 
 const Navbar = ({ cartItems }) => {
   const [showMenu, setShowMenu] = useState(false);
@@ -17,17 +18,17 @@ const Navbar = ({ cartItems }) => {
       </div>
       <ul className="hidden sm:flex gap-5 text-sm sm:text-base md:text-lg text-gray-700">
         <div className="flex flex-col justify-center gap-1 items-center">
-          <p>Home</p>
+          <Link to="/">Home</Link>
           <hr className="w-2/4 border-none h-[1.5px]  bg-gray-800 " />
         </div>
 
         <div className="flex flex-col justify-center gap-1 items-center">
-          <p>Shop</p>
+          <Link to="/shop">Shop</Link>
           <hr className="w-2/4 border-none h-[1.5px]  bg-gray-800 " />
         </div>
 
         <div className="flex flex-col justify-center gap-1 items-center">
-          <p>Cart{` (${cartItems})`}</p>
+          <Link to="/cart">Cart{` (${cartItems})`}</Link>
           <hr className="w-2/4 border-none h-[1.5px]  bg-gray-800 " />
         </div>
       </ul>

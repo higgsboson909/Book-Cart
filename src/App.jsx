@@ -1,17 +1,18 @@
 import "./App.css";
-import Hero from "./components/Hero";
 import BookGrid from "./components/BookGrid";
 import Navbar from "./components/Navbar";
 import { useState } from "react";
 
 function App() {
   const [cartItems, setCartItems] = useState(0);
+  const [cart, setCart] = useState([]);
+
   return (
     <div className="w-full ">
-      <Navbar></Navbar>
+      {/* <Navbar></Navbar> */}
 
       {/* <Hero></Hero> */}
-      <BookGrid></BookGrid>
+      {/* <Shop></Shop> */}
     </div>
   );
 }

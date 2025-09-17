@@ -2,7 +2,7 @@ import Navbar from "../components/Navbar";
 import BookGrid from "../components/BookGrid";
 import { useState } from "react";
 
-const Cart = () => {
+const Shop = () => {
   const [cartItems, setCartItems] = useState(0);
   return (
     <div className="w-full ">
@@ -15,4 +15,4 @@ const Cart = () => {
   );
 };
 
-export default Cart;
+export default Shop;
