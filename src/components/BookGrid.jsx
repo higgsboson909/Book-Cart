@@ -19,7 +19,12 @@ const BookGrid = ({ handleAddItem, handleRemItem }) => {
       ) : (
         <div className="grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 lg:gap-20 gap-10">
           {data.map((item, index) => (
-            <BookCard key={item.id} data={item}></BookCard>
+            <BookCard
+              key={item.id}
+              data={item}
+              handleAddItem={handleAddItem}
+              handleRemItem={handleRemItem}
+            ></BookCard>
           ))}
         </div>
       )}
