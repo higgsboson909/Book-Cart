@@ -1,17 +1,9 @@
+import { useOutletContext } from "react-router";
 import BookCard from "./BookCard";
-import { getData } from "../utils/getData";
-import { useState, useEffect } from "react";
 
 const BookGrid = ({ handleAddItem, handleRemItem }) => {
-  const [data, setData] = useState(null);
-  const [loading, setLoading] = useState(true);
-  useEffect(() => {
-    getData().then((books) => {
-      setData(books);
-      console.log(books);
-      setLoading(false);
-    });
-  }, []);
+  const { data, loading } = useOutletContext();
+  console.log("heer i am", data);
   return (
     <div className="flex justify-center px-6 sm:px-[8vw] md:px-[12vw] lg:px-[12vw] ">
       {loading ? (
