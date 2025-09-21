@@ -1,3 +1,4 @@
+import { Outlet } from "react-router";
 import "./App.css";
 import BookGrid from "./components/BookGrid";
 import Navbar from "./components/Navbar";
@@ -9,10 +10,8 @@ function App() {
 
   return (
     <div className="w-full ">
-      {/* <Navbar></Navbar> */}
-
-      {/* <Hero></Hero> */}
-      {/* <Shop></Shop> */}
+      <Navbar cartItems={cartItems}></Navbar>
+      <Outlet context={[cartItems, setCartItems]}></Outlet>
     </div>
   );
 }

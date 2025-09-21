@@ -1,12 +1,9 @@
-import Navbar from "../components/Navbar";
 import BookGrid from "../components/BookGrid";
-import { useState } from "react";
-
+import { useOutletContext } from "react-router";
 const Shop = () => {
-  const [cartItems, setCartItems] = useState(0);
+  const [cartItems, setCartItems] = useOutletContext();
   return (
     <div className="w-full ">
-      <Navbar cartItems={cartItems}></Navbar>
       <BookGrid
         handleAddItem={() => setCartItems((prev) => +prev + 1)}
         handleRemItem={() => setCartItems((prev) => +prev - 1)}
