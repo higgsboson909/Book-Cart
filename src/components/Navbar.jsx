@@ -10,12 +10,14 @@ const Navbar = ({ cartItems }) => {
 
   return (
     <div className="flex items-center justify-between py-5 font-medium  text-lg px-6 sm:px-[8vw] md:px-[10vw] lg:px-[20vw] ">
-      <div className="flex gap-1 sm:gap-3 items-center justify-center">
-        <img src={logo} className="w-8 sm:w-12 h-auto" alt="logo" />
-        <h1 className="text-lg sm:text-2xl text-center sm:font-normal sansation-regular md:font-semibold">
-          BookCart
-        </h1>
-      </div>
+      <Link to="/">
+        <div className="flex gap-1 sm:gap-3 items-center justify-center">
+          <img src={logo} className="w-8 sm:w-12 h-auto" alt="logo" />
+          <h1 className="text-lg sm:text-2xl text-center sm:font-normal sansation-regular md:font-semibold">
+            BookCart
+          </h1>
+        </div>
+      </Link>
       <ul className="hidden sm:flex gap-5 text-sm sm:text-base md:text-lg text-gray-700">
         <div className="flex flex-col justify-center gap-1 items-center">
           <Link to="/">Home</Link>
