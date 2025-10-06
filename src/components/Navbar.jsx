@@ -7,6 +7,7 @@ import { Link } from "react-router";
 
 const Navbar = ({ cartItems }) => {
   const [showMenu, setShowMenu] = useState(false);
+  const [hideUnderline, setHideUnderline] = useState(false);
 
   return (
     <div className="flex items-center justify-between py-5 font-medium  text-lg px-6 sm:px-[8vw] md:px-[10vw] lg:px-[20vw] ">

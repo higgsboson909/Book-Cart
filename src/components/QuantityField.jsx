@@ -6,6 +6,7 @@ const QuantityField = ({
   handleDec,
   setQuantity,
   handleRemItem,
+  itemId,
 }) => {
   return (
     <div className="h-8 m-auto px-2 flex  items-center">
@@ -47,7 +48,7 @@ const QuantityField = ({
         <div
           className=" text-center"
           onClick={() => {
-            setQuantity(0);
+            setQuantity((prev) => ({ ...prev, [itemId]: 0 }));
             handleRemItem();
           }}
         >

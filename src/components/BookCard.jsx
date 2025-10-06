@@ -6,8 +6,10 @@ const BookCard = ({
   data = { id: 1, title: "hi", cover: "", authors: ["hi"] },
   handleAddItem,
   handleRemItem,
+  quantity,
+  setQuantity,
 }) => {
-  const [quantity, setQuantity] = useState(0);
+  // const [quantity, setQuantity] = useState(0);
 
   return (
     <div className="border-2 w-50">
@@ -22,19 +24,28 @@ const BookCard = ({
           <AddToCart
             quantity={quantity}
             handleClick={() => {
-              setQuantity(1);
+              setQuantity((prev) => ({ ...prev, [data.id + 1]: 1 }));
               handleAddItem();
             }}
           ></AddToCart>
         ) : (
           <QuantityField
             quantity={quantity}
-            handleDec={() => setQuantity((prev) => +prev - 1)}
+            handleDec={() =>
+              setQuantity((prev) => ({
+                ...prev,
+                [data.id + 1]: +prev[data.id + 1] - 1,
+              }))
+            }
             handleInc={() => {
-              setQuantity((prev) => +prev + 1);
+              setQuantity((prev) => ({
+                ...prev,
+                [data.id + 1]: +prev[data.id + 1] + 1,
+              }));
             }}
             setQuantity={setQuantity}
             handleRemItem={handleRemItem}
+            itemId={data.id + 1}
           ></QuantityField>
         )}
       </div>
