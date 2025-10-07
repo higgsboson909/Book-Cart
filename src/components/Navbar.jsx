@@ -7,8 +7,13 @@ import { Link } from "react-router";
 
 const Navbar = ({ cartItems }) => {
   const [showMenu, setShowMenu] = useState(false);
-  const [hideUnderline, setHideUnderline] = useState(false);
+  const [activeLink, setActiveLink] = useState("home");
 
+  const links = [
+    { name: "Home", path: "/" },
+    { name: "Shop", path: "/shop" },
+    { name: `Cart (${0 || cartItems()})`, path: "/cart" },
+  ];
   return (
     <div className="flex items-center justify-between py-5 font-medium  text-lg px-6 sm:px-[8vw] md:px-[10vw] lg:px-[20vw] ">
       <Link to="/">
@@ -21,18 +26,17 @@ const Navbar = ({ cartItems }) => {
       </Link>
       <ul className="hidden sm:flex gap-5 text-sm sm:text-base md:text-lg text-gray-700">
         <div className="flex flex-col justify-center gap-1 items-center">
-          <Link to="/">Home</Link>
-          <hr className="w-2/4 border-none h-[1.5px]  bg-gray-800 " />
-        </div>
-
-        <div className="flex flex-col justify-center gap-1 items-center">
-          <Link to="/shop">Shop</Link>
-          <hr className="w-2/4 border-none h-[1.5px]  bg-gray-800 " />
-        </div>
-
-        <div className="flex flex-col justify-center gap-1 items-center">
-          <Link to="/cart">Cart{` (${cartItems()})`}</Link>
-          <hr className="w-2/4 border-none h-[1.5px]  bg-gray-800 " />
+          <nav className="flex space-x-6">
+            {links.map((link) => (
+              <Link
+                key={link.key}
+                to={link.path}
+                onClick={() => setActiveLink(link.key)}
+              >
+                {link.name}
+              </Link>
+            ))}
+          </nav>
         </div>
       </ul>
       <img
