@@ -31,7 +31,7 @@ const Navbar = ({ cartItems }) => {
         </div>
 
         <div className="flex flex-col justify-center gap-1 items-center">
-          <Link to="/cart">Cart{` (${cartItems})`}</Link>
+          <Link to="/cart">Cart{` (${cartItems()})`}</Link>
           <hr className="w-2/4 border-none h-[1.5px]  bg-gray-800 " />
         </div>
       </ul>
@@ -56,26 +56,36 @@ const Navbar = ({ cartItems }) => {
             />
             <p>Back</p>
           </div>
-          <div
-            className="px-4 pb-2 cursor-pointer"
-            onClick={() => setShowMenu(false)}
-          >
-            <Link to="/">Home</Link>
-          </div>
           <hr className="h-3"></hr>
-          <div
-            className="px-4 pb-2 cursor-pointer"
-            onClick={() => setShowMenu(false)}
-          >
-            <Link to="/Shop">Shop</Link>
-          </div>
+
+          <Link to="/">
+            <div
+              className="w-full px-4 pb-2 cursor-pointer"
+              onClick={() => setShowMenu(false)}
+            >
+              Home
+            </div>
+          </Link>
           <hr className="h-3"></hr>
-          <div
-            className="px-4 pb-2 cursor-pointer"
-            onClick={() => setShowMenu(false)}
-          >
-            <Link to="/Cart">Cart{`(${cartItems})`}</Link>
-          </div>
+
+          <Link to="/Shop">
+            <div
+              className="px-4 pb-2 cursor-pointer"
+              onClick={() => setShowMenu(false)}
+            >
+              Shop
+            </div>
+          </Link>
+          <hr className="h-3"></hr>
+
+          <Link to="/Cart">
+            <div
+              className="px-4 pb-2 cursor-pointer"
+              onClick={() => setShowMenu(false)}
+            >
+              Cart{`(${cartItems()})`}
+            </div>
+          </Link>
         </div>
       </div>
     </div>

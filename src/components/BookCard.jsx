@@ -11,7 +11,7 @@ const BookCard = ({
   // const [quantity, setQuantity] = useState(0);
 
   return (
-    <div className="max-w-xs bg-white rounded-2xl shadow-md hover:shadow-lg transition-shadow duration-300 border border-gray-100 overflow-hidden">
+    <div className=" max-w-xs bg-white rounded-2xl shadow-md hover:shadow-lg transition-shadow duration-300 border border-gray-100 overflow-hidden">
       <div className="flex flex-col items-center">
         <img
           src={data.cover}

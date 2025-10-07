@@ -33,6 +33,13 @@ function App() {
     20: 0,
   });
 
+  const stuff = () => {
+    let q = 0;
+    for (let key in quantities) {
+      if (quantities[key] > 0) q++;
+    }
+    return q;
+  };
   useEffect(() => {
     getData().then((books) => {
       setData(books);
@@ -43,7 +50,7 @@ function App() {
 
   return (
     <div className="w-full ">
-      <Navbar cartItems={cartItems}></Navbar>
+      <Navbar cartItems={stuff}></Navbar>
       <Outlet
         context={{
           cartItems,
