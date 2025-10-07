@@ -9,51 +9,58 @@ const QuantityField = ({
   itemId,
 }) => {
   return (
-    <div className="h-8 m-auto px-2 flex  items-center">
-      <div className="w-50 text-center mx-auto  flex justify-center gap-10 pr-3">
-        <div className="w-2/4 flex justify-center items-center border-2">
+    <div className="flex items-center justify-center py-0">
+      <div className="flex items-center gap-4 bg-gray-50 rounded-xl px-0 py-0 shadow-sm  border-gray-200 border-none">
+        <div className="flex items-center justify-center border border-gray-300 rounded-lg overflow-hidden">
           <button
-            className="w-1/4 m-auto text-center bg-amber-300"
+            className="px-3 py-1 text-lg font-semibold text-gray-700 hover:bg-gray-200 transition-colors duration-200"
             onClick={() => {
               handleDec();
               quantity === 1 && handleRemItem();
             }}
           >
-            -
+            −
           </button>
-          <div className="w-1/2 px-1">
-            <input
-              className="w-full outline-none m-auto"
-              type="number"
-              name="quantity"
-              value={quantity}
-              onChange={(event) => {
-                quantity === 0 && handleRemItem();
-                setQuantity(+event.target.value);
-                console.log(quantity);
-              }}
-              onEmptied={(event) => {
-                event.preventDefault();
-                handleRemItem();
-              }}
-            />
-          </div>
+
+          <input
+            className="w-12 text-center text-sm font-medium text-gray-800 bg-transparent outline-none"
+            type="number"
+            name="quantity"
+            value={quantity}
+            onChange={(event) => {
+              quantity === 0 && handleRemItem();
+              setQuantity((prev) => ({
+                ...prev,
+                [itemId]: +event.target.value,
+              }));
+            }}
+            onEmptied={(event) => {
+              event.preventDefault();
+              handleRemItem();
+            }}
+          />
+
           <button
-            className="w-1/4 m-auto text-center bg-amber-300"
+            className="px-3 py-1 text-lg font-semibold text-gray-700 hover:bg-gray-200 transition-colors duration-200"
             onClick={handleInc}
           >
             +
           </button>
         </div>
-        <div
-          className=" text-center"
+
+        <button
+          className="p-2 rounded-full hover:bg-red-50 transition-colors duration-200"
           onClick={() => {
             setQuantity((prev) => ({ ...prev, [itemId]: 0 }));
             handleRemItem();
           }}
         >
-          <img src={delete_icon} className="w-6" alt="delete-button" />
-        </div>
+          <img
+            src={delete_icon}
+            className="w-5 opacity-80 hover:opacity-100"
+            alt="delete-button"
+          />
+        </button>
       </div>
     </div>
   );

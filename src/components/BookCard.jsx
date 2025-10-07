@@ -11,42 +11,50 @@ const BookCard = ({
   // const [quantity, setQuantity] = useState(0);
 
   return (
-    <div className="border-2 w-50">
-      <div className=" flex flex-col">
-        <img src={data.cover} alt="" className="p-3  h-60 w-55" />
-        <div className="w-full flex flex-col">
-          <div className="w-full mx-auto p-2 text-sm">{data.title}</div>
-          <div className="text-xs">{data.authors[0]}</div>
-          <div className="text-base">{`$${data.price}`}</div>
+    <div className="max-w-xs bg-white rounded-2xl shadow-md hover:shadow-lg transition-shadow duration-300 border border-gray-100 overflow-hidden">
+      <div className="flex flex-col items-center">
+        <img
+          src={data.cover}
+          alt={data.title}
+          className="h-60 w-full object-cover rounded-t-2xl"
+        />
+        <div className="w-full flex flex-col items-start px-4 py-3 space-y-1">
+          <div className="text-base font-semibold text-gray-800 line-clamp-2">
+            {data.title}
+          </div>
+          <div className="text-sm text-gray-500">{data.authors[0]}</div>
+          <div className="text-lg font-bold text-gray-500">{`$${data.price}`}</div>
         </div>
-        {quantity === 0 ? (
-          <AddToCart
-            quantity={quantity}
-            handleClick={() => {
-              setQuantity((prev) => ({ ...prev, [data.id + 1]: 1 }));
-              handleAddItem();
-            }}
-          ></AddToCart>
-        ) : (
-          <QuantityField
-            quantity={quantity}
-            handleDec={() =>
-              setQuantity((prev) => ({
-                ...prev,
-                [data.id + 1]: +prev[data.id + 1] - 1,
-              }))
-            }
-            handleInc={() => {
-              setQuantity((prev) => ({
-                ...prev,
-                [data.id + 1]: +prev[data.id + 1] + 1,
-              }));
-            }}
-            setQuantity={setQuantity}
-            handleRemItem={handleRemItem}
-            itemId={data.id + 1}
-          ></QuantityField>
-        )}
+        <div className="w-full px-4 pb-4">
+          {quantity === 0 ? (
+            <AddToCart
+              quantity={quantity}
+              handleClick={() => {
+                setQuantity((prev) => ({ ...prev, [data.id + 1]: 1 }));
+                handleAddItem();
+              }}
+            />
+          ) : (
+            <QuantityField
+              quantity={quantity}
+              handleDec={() =>
+                setQuantity((prev) => ({
+                  ...prev,
+                  [data.id + 1]: +prev[data.id + 1] - 1,
+                }))
+              }
+              handleInc={() => {
+                setQuantity((prev) => ({
+                  ...prev,
+                  [data.id + 1]: +prev[data.id + 1] + 1,
+                }));
+              }}
+              setQuantity={setQuantity}
+              handleRemItem={handleRemItem}
+              itemId={data.id + 1}
+            />
+          )}
+        </div>
       </div>
     </div>
   );
