@@ -3,11 +3,10 @@ import { useState } from "react";
 import back_arrow from "../assets/arrow.png";
 import logo from "../assets/logo.png";
 import menu_icon from "../assets/menu_icon.png";
-import { Link } from "react-router";
+import { NavLink } from "react-router";
 
 const Navbar = ({ cartItems }) => {
   const [showMenu, setShowMenu] = useState(false);
-  const [activeLink, setActiveLink] = useState("home");
 
   const links = [
     { name: "Home", path: "/" },
@@ -16,25 +15,28 @@ const Navbar = ({ cartItems }) => {
   ];
   return (
     <div className="flex items-center justify-between py-5 font-medium  text-lg px-6 sm:px-[8vw] md:px-[10vw] lg:px-[20vw] ">
-      <Link to="/">
+      <NavLink to="/">
         <div className="flex gap-1 sm:gap-3 items-center justify-center">
           <img src={logo} className="w-8 sm:w-12 h-auto" alt="logo" />
           <h1 className="text-lg sm:text-2xl text-center sm:font-normal sansation-regular md:font-semibold">
             BookCart
           </h1>
         </div>
-      </Link>
+      </NavLink>
       <ul className="hidden sm:flex gap-5 text-sm sm:text-base md:text-lg text-gray-700">
         <div className="flex flex-col justify-center gap-1 items-center">
           <nav className="flex space-x-6">
             {links.map((link) => (
-              <Link
+              <NavLink
+                className={({ isActive }) =>
+                  ` py-0 text-gray-700 transition hover:border-black border-b-2 
+                ${isActive ? "border-black" : "border-transparent"}`
+                }
                 key={link.key}
                 to={link.path}
-                onClick={() => setActiveLink(link.key)}
               >
                 {link.name}
-              </Link>
+              </NavLink>
             ))}
           </nav>
         </div>
@@ -48,7 +50,7 @@ const Navbar = ({ cartItems }) => {
       <div
         className={`absolute top-0 right-0 bottom-0 overflow-hidden transition-all bg-white ${showMenu ? "w-full" : "w-0"}`}
       >
-        <div className="flex flex-col text-gray-500">
+        <div className="flex flex-col text-gray-500 px-[2px]">
           <div
             onClick={() => setShowMenu(false)}
             className="flex  items-center gap-2 p-2 cursor-pointer"
@@ -60,36 +62,41 @@ const Navbar = ({ cartItems }) => {
             />
             <p>Back</p>
           </div>
-          <hr className="h-3"></hr>
+          <hr className=" border-none bg-[#f5f5f5]"></hr>
+          <NavLink
+            to="/"
+            className={({ isActive }) =>
+              `w-full px-4 py-1 cursor-pointer  transition 
+     ${isActive ? "bg-black text-white" : "text-gray-800 hover:bg-gray-100"}`
+            }
+            onClick={() => setShowMenu(false)}
+          >
+            Home
+          </NavLink>
+          <hr className="h-1 border-none bg-gray-300"></hr>
 
-          <Link to="/">
-            <div
-              className="w-full px-4 pb-2 cursor-pointer"
-              onClick={() => setShowMenu(false)}
-            >
-              Home
-            </div>
-          </Link>
-          <hr className="h-3"></hr>
+          <NavLink
+            to="/Shop"
+            className={({ isActive }) =>
+              `block w-full px-4 py-1 cursor-pointer  transition ${isActive ? "bg-black text-white" : "text-gray-800"}`
+            }
+            onClick={() => setShowMenu(false)}
+          >
+            Shop
+          </NavLink>
+          <hr className="h-1 border-none bg-gray-300"></hr>
 
-          <Link to="/Shop">
-            <div
-              className="px-4 pb-2 cursor-pointer"
-              onClick={() => setShowMenu(false)}
-            >
-              Shop
-            </div>
-          </Link>
-          <hr className="h-3"></hr>
+          <NavLink
+            to="/Cart"
+            className={({ isActive }) =>
+              `block w-full px-4 py-1 cursor-pointer  transition ${isActive ? "bg-black text-white" : "text-gray-800"}`
+            }
+            onClick={() => setShowMenu(false)}
+          >
+            Cart{`(${cartItems()})`}
+          </NavLink>
 
-          <Link to="/Cart">
-            <div
-              className="px-4 pb-2 cursor-pointer"
-              onClick={() => setShowMenu(false)}
-            >
-              Cart{`(${cartItems()})`}
-            </div>
-          </Link>
+          <hr className="h-1 border-none bg-gray-300"></hr>
         </div>
       </div>
     </div>
