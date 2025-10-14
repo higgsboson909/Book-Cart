@@ -3,6 +3,7 @@ import Navbar from "../components/Navbar";
 import Hero from "../components/Hero";
 import { useEffect } from "react";
 import Categories from "../components/Categories.jsx";
+import AuthorOfTheMonth from "../components/AuthorOfMonth.jsx";
 const Home = () => {
   useEffect(() => {
     document.title = "BookCart";
@@ -12,6 +13,7 @@ const Home = () => {
       <Hero></Hero>
       <Categories></Categories>
       <BooksCarousel></BooksCarousel>
+      <AuthorOfTheMonth></AuthorOfTheMonth>
     </div>
   );
 };
