@@ -5,6 +5,7 @@
   margin: auto;
   padding-left: 40px !important;
   padding-bottom: 10px !important;
+  padding-top: 20px !important;
   box-sizing: border-box;
 }
 
@@ -13,6 +14,7 @@
     width: 100%;
     padding-left: 32% !important;
     padding-bottom: 20px !important;
+    padding-top: 15px !important;
   }
 
   .mySwiper .swiper-pagination {
@@ -22,11 +24,11 @@
 
 @media (max-width: 450px) {
   .mySwiper {
+    padding-top: 10px !important;
     width: 100%;
     padding-left: 24% !important;
     padding-bottom: 20px !important;
   }
-
   .mySwiper .swiper-pagination {
     padding-top: 25px;
   }
@@ -42,6 +44,11 @@
   opacity: 1;
 }
 
+.sansation-bold {
+  font-family: "Sansation", sans-serif;
+  font-weight: 700;
+  font-style: normal;
+}
 /* Pagination styling */
 .mySwiper .swiper-pagination {
   bottom: 0px !important; /* moves dots 5px lower */

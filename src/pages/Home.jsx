@@ -2,6 +2,7 @@ import BooksCarousel from "../components/BooksCarousel.jsx";
 import Navbar from "../components/Navbar";
 import Hero from "../components/Hero";
 import { useEffect } from "react";
+import Categories from "../components/Categories.jsx";
 const Home = () => {
   useEffect(() => {
     document.title = "BookCart";
@@ -9,7 +10,8 @@ const Home = () => {
   return (
     <div>
       <Hero></Hero>
-      <BooksCarousel title={"Online Bazar Upto 60% Off"}></BooksCarousel>
+      <Categories></Categories>
+      <BooksCarousel></BooksCarousel>
     </div>
   );
 };
