@@ -3,18 +3,24 @@ import PropTypes from "prop-types";
 import LoveReact from "./LoveReact";
 import AddToCart from "./AddToCart";
 import QuantityField from "./QuantityField";
+import dummy from "../assets/covers/1.jpeg";
 import OffBanner from "./OffBanner";
 const BookCard = ({
-  data = { id: 1, title: "hi", cover: "", authors: ["hi"] },
+  data = {
+    id: 1,
+    title: "Book",
+    authors: ["Author"],
+    cover: dummy,
+  },
   handleAddItem,
   handleRemItem,
-  quantity,
+  quantity = 0,
   setQuantity,
 }) => {
   // const [quantity, setQuantity] = useState(0);
 
   return (
-    <div className="relative max-w-max bg-white hover:cursor-pointer rounded-sm  transition-shadow duration-300 overflow-hidden">
+    <div className="relative w-[200px]  bg-white hover:cursor-pointer rounded-sm   transition-shadow duration-300 overflow-hidden">
       <div className=" flex flex-col justify-center items-start pt-7.5">
         <OffBanner percentage={data.percentage}></OffBanner>
         <img src={data.cover} alt={data.title} className="h-60" />
@@ -29,8 +35,11 @@ const BookCard = ({
           <PriceTag totalprice={data.price}></PriceTag>
           {/* <div className="text-base font-bold text-gray-500">{`$${data.price}`}</div> */}
         </div>
-        <div className="w-full items-start ml-[-17px] justify-self-start pb-2.5 text-start">
-          <div className="w-full  flex items-center justify-center  pb-4 gap-2">
+        <div className="w-full flex items-start ml-[0px] justify-self-start  pb-2.5 text-start">
+          <div
+            className="w-full flex items-center 
+            pb-4 gap-2"
+          >
             {quantity === 0 ? (
               <AddToCart
                 quantity={quantity}

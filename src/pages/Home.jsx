@@ -9,7 +9,7 @@ const Home = () => {
   return (
     <div>
       <Hero></Hero>
-      {/* <BooksCarousel></BooksCarousel> */}
+      <BooksCarousel title={"Online Bazar Upto 60% Off"}></BooksCarousel>
     </div>
   );
 };
