@@ -4,6 +4,7 @@ import back_arrow from "../assets/arrow.png";
 import logo from "../assets/logo.png";
 import menu_icon from "../assets/menu_icon.png";
 import { NavLink } from "react-router";
+import CartIcon from "./CartIcon"
 
 const Navbar = ({ cartItems }) => {
   const [showMenu, setShowMenu] = useState(false);
@@ -11,7 +12,9 @@ const Navbar = ({ cartItems }) => {
   const links = [
     { name: "Home", path: "/", key: 1 },
     { name: "Shop", path: "/shop", key: 2 },
-    { name: `Cart (${0 || cartItems()})`, path: "/cart", key: 3 },
+    { name: <CartIcon/>, path: "/cart", key: 3 },
+    // { name: {`Cart (${0 || cartItems()})`, path: "/cart", key: 3 },
+    //
   ];
   return (
     <div className="flex items-center justify-between py-5 font-medium  text-lg px-6 sm:px-[8vw] md:px-[10vw] lg:px-[20vw] ">
