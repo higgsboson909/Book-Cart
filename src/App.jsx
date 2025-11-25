@@ -32,6 +32,7 @@ function App() {
     19: 0,
     20: 0,
   });
+  const [isCartSideBarOpen, setIsCartSideBarOpen] = useState(false);
 
   const stuff = () => {
     let q = 0;
@@ -50,7 +51,10 @@ function App() {
 
   return (
     <div className="w-full ">
-      <Navbar cartItems={stuff}></Navbar>
+      <Navbar
+        cartItems={stuff}
+        toggleCartSideBar={setIsCartSideBarOpen}
+      ></Navbar>
       <Outlet
         context={{
           cartItems,
@@ -59,6 +63,8 @@ function App() {
           loading,
           quantities,
           setQuantities,
+          isCartSideBarOpen,
+          setIsCartSideBarOpen,
         }}
       ></Outlet>
     </div>

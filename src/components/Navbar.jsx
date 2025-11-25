@@ -4,15 +4,15 @@ import back_arrow from "../assets/arrow.png";
 import logo from "../assets/logo.png";
 import menu_icon from "../assets/menu_icon.png";
 import { NavLink } from "react-router";
+import { useOutletContext } from "react-router";
 import CartIcon from "./CartIcon"
 
-const Navbar = ({ cartItems }) => {
+const Navbar = ({ cartItems, toggleCartSideBar }) => {
   const [showMenu, setShowMenu] = useState(false);
 
   const links = [
     { name: "Home", path: "/", key: 1 },
     { name: "Shop", path: "/shop", key: 2 },
-    { name: <CartIcon/>, path: "/cart", key: 3 },
     // { name: {`Cart (${0 || cartItems()})`, path: "/cart", key: 3 },
     //
   ];
@@ -41,6 +41,7 @@ const Navbar = ({ cartItems }) => {
                 {link.name}
               </NavLink>
             ))}
+            <CartIcon cartItems={0 || cartItems()} handleClick={toggleCartSideBar}></CartIcon>
           </nav>
         </div>
       </ul>
