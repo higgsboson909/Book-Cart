@@ -9,7 +9,7 @@ const QuantityField = ({
   itemId,
 }) => {
   return (
-    <div className="flex items-center justify-center py-0">
+    <div className="flex items-center justify-center py-0 ">
       <div className="flex items-center gap-4 bg-gray-50 rounded-xl px-0 py-0 shadow-sm  border-gray-200 border-none">
         <div className="flex items-center justify-center border border-gray-300 rounded-lg overflow-hidden">
           <button

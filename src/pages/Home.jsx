@@ -1,3 +1,4 @@
+import CartSideBar from "../components/CartSideBar.jsx"
 import BooksCarousel from "../components/BooksCarousel.jsx";
 import Navbar from "../components/Navbar";
 import Hero from "../components/Hero";
@@ -14,6 +15,7 @@ const Home = () => {
       <Categories></Categories>
       <BooksCarousel></BooksCarousel>
       <AuthorOfTheMonth></AuthorOfTheMonth>
+      <CartSideBar></CartSideBar>
     </div>
   );
 };
