@@ -3,6 +3,7 @@ import "./App.css";
 import { useEffect } from "react";
 import { getData } from "./utils/getData";
 import Navbar from "./components/Navbar";
+import NavbarNew from "./components/NavbarNew.jsx"
 import { useState } from "react";
 
 function App() {
@@ -51,6 +52,7 @@ function App() {
 
   return (
     <div className="w-full ">
+      <NavbarNew></NavbarNew>
       <Navbar
         cartItems={stuff}
         toggleCartSideBar={setIsCartSideBarOpen}
