@@ -28,3 +28,11 @@ hr {
 .banner-slash {
   clip-path: polygon(0 0, 100% 0, 78% 100%, 0% 100%);
 }
+
+.material-symbols-outlined {
+  font-variation-settings:
+    "FILL" 0,
+    "wght" 400,
+    "GRAD" 0,
+    "opsz" 24;
+}
